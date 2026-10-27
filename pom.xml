@@ -6,7 +6,6 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Project identifiers -->
     <groupId>com.nnjjstudiojj.physics</groupId>
     <artifactId>physics2d</artifactId>
     <packaging>jar</packaging>
@@ -14,7 +13,6 @@
     <name>physics2d</name>
     <url>http://maven.apache.org</url>
 
-    <!-- Project configuration -->
     <properties>
         <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,31 +20,34 @@
         <junit.version>5.13.4</junit.version>
     </properties>
 
-    <!-- Dependencies -->
     <dependencies>
 
-        <!-- LWJGL core -->
+        <dependency>
+            <groupId>org.lwjgl</groupId>
+            <artifactId>lwjgl-opengl</artifactId>
+            <version>3.4.3</version>
+            <classifier>natives-linux</classifier>
+            <scope>runtime</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.lwjgl</groupId>
             <artifactId>lwjgl</artifactId>
             <version>${lwjgl.version}</version>
         </dependency>
 
-        <!-- GLFW: windows, keyboard and mouse input -->
         <dependency>
             <groupId>org.lwjgl</groupId>
             <artifactId>lwjgl-glfw</artifactId>
             <version>${lwjgl.version}</version>
         </dependency>
 
-        <!-- OpenGL rendering -->
         <dependency>
             <groupId>org.lwjgl</groupId>
             <artifactId>lwjgl-opengl</artifactId>
             <version>${lwjgl.version}</version>
         </dependency>
 
-        <!-- LWJGL native libraries: Linux -->
         <dependency>
             <groupId>org.lwjgl</groupId>
             <artifactId>lwjgl</artifactId>
@@ -63,7 +64,6 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- JUnit 5: unit testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -77,15 +77,11 @@
     	    <artifactId>mathsLibrary</artifactId>
     	    <version>1.0-SNAPSHOT</version>
 	</dependency>
-
-
     </dependencies>
 
-    <!-- Build and test configuration -->
     <build>
         <plugins>
 
-            <!-- Compile using the specified Java version -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -95,11 +91,16 @@
                 </configuration>
             </plugin>
 
-            <!-- Run JUnit 5 tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.4</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.5.0</version>
             </plugin>
 
         </plugins>
